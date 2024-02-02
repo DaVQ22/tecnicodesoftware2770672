@@ -7,4 +7,4 @@
 |1. Wireframes | LOHI |
 |2. Wireframes | HIFI |
 
-! [Bird](http://tinyurl.com/36zjdcd5)
+! [Bird](http://tinyurl.com/39enkpkh)
