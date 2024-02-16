@@ -3,24 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>01-Homepage</title>
+    <title>02-Register</title>
     <link rel="stylesheet" href="/css/master.css">
 </head>
-<body>
+<body class="diferentbackground">
     <main>
         <header>
-            <img src="/imagenes/Icon light.png" alt="Logo">
+            <img src="/imagenes/Icon dark.png" alt="Logo">
         </header>
-        <section class="login">
+        <section class="register">
             <menu>
-                <a href="#">Login</a>
-                <a href="register.html">Register</a>
+                <a href="login.html">Login</a>
+                <a href="#">Register</a>
             </menu>
             <form action="dashboard.html" method="post">
-                
+                <input type="text" name="name" placeholder="Full Name" id="" required>
+                <input type="text" name="phone" placeholder="Phone Number" required>
                 <input type="email" name="email" placeholder="Email" required>
                 <input type="password" name="password" placeholder="Password" required>
-                <button type="submit">Login</button>
+                <button type="submit">Register</button>
             </form>
         </section>
     </main>
