@@ -335,6 +335,7 @@ main {
             img#upload{
                 border-radius: 50%;
                 border: 2px solid #FDFFFC;
+                object-fit: cover;
                 cursor: pointer;
                 transition: all 0.4s;
                 height: 240px;
@@ -373,6 +374,83 @@ main {
                 width: 200px;
             }
         }
+    }
+
+    div.pets {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+
+        article{
+            border-radius: 20px;
+            background-color: #011627;
+            padding: 10px;
+            width: 150px;
+            color: #FDFFFC;
+            header {
+                display: flex;
+                gap: 1rem;
+                align-items: center;
+                justify-content: center;
+                img {
+                    margin-top: 0;
+                    width: 80px;
+                }
+                p {
+                    display: flex;
+                    flex-direction: column;
+                    span:last-child{
+                        font-weight: 300;
+                        font-size: 14px;
+                    }
+                }
+            }
+            footer {
+                display: flex;
+                justify-content: center;
+                margin-top: 1rem;
+                a:is(:link, :visited) {
+                    background-color: #FDFFFC;
+                    border-radius: 20px;
+                    color: #011627;
+                    display: flex;
+                    text-decoration: none;
+                    justify-content: center;
+                    width: 120px;
+                    transition: all 0.4s ;
+                    padding: 4px;
+                }
+                a:is(:hover) {
+                    transform: scale(1.1);
+                }
+            }
+        }
+        article:nth-child(3n+4) {
+            background-color: #2ec4b6;
+        }
+    }
+
+    .btn {
+        display: flex;
+        color: var(--color2);
+        border-radius: 50px;
+        background-color: var(--color3);
+        justify-content: center;
+        align-items: center;
+        font-size: 32px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-decoration: none;
+        height: 80px;
+        width: 380px;
+        transition: all 0.5s ease-in;
+    }
+
+    .btn:is( :hover) {
+        border: 2px var(--color4);
+        background-color: var(--color4);
+        color: var(--color2);
+        transition: 0.5s;
     }
 
 
