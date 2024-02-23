@@ -1,5 +1,7 @@
 <?php 
 
+    session_start();
+
     define('URLBASE', 'http://localhost:8080');
     define('URLCSS', URLBASE . '/css');
     define('URLIMGS', URLBASE . '/imagenes');

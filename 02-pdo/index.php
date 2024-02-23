@@ -7,11 +7,7 @@ $pets = getALLpets($conx);
 
 ?>
 
-<?php foreach($pets as $pet): ?>
-    <div> <?php echo $pet['name'] ?> </div>
-    <div> <?php echo $pet['breed'] ?> </div>
-    <div> <?php echo $pet['location'] ?> </div>
-    <?php endforeach ?>
+
 
     <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +15,7 @@ $pets = getALLpets($conx);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="<?php echo URLCSS . "/master.css" ?>">
+    <link rel="stylesheet" href="<?php echo URLCSS . "/master.css" ?>">
     <title>Module Users</title>
 </head>
 
@@ -36,7 +32,7 @@ $pets = getALLpets($conx);
         </header>
         <section class="module">
         <h1>Module Pets</h1>
-        <a class="add" href="add.html">
+        <a class="add" href="add.php">
             <img src="/imagenes/ico-add (1).svg" width="30px" alt="add">
             Add Pet
         </a>
@@ -44,7 +40,8 @@ $pets = getALLpets($conx);
             <tbody>
                 <?php foreach($pets as $pet): ?>
                 <tr>
-                    <td><img src="/imagenes/Icono petreal.svg" alt="User"></td>
+                    <td>
+                        <img src="<?php echo URLIMGS . "/" . $pet['photo'] ?>" alt="User"></td>
                     <td>
                         <span><?php echo $pet['name'] ?></span><br>
                         <span><?php echo $pet['kind'] ?></span>
@@ -73,7 +70,22 @@ $pets = getALLpets($conx);
     <script src="/01-UI/js/jquery-3.7.1.min.js"></script>
     <script>
         $(document).ready(function () {
-            $('body').on('click', '.delete', function () {
+
+            <?php if(isset($_SESSION['msj'])): ?>
+
+                Swal.fire({
+                    title: "Taz!",
+                    text: "<?php echo $_SESSION['msj'] ?>",
+                    confirmButtonColor: "#2ec4b6",
+                    icon: "success"
+                })
+
+            <?php unset($_SESSION['msj']) ?>
+            <?php endif ?>
+
+
+
+    $('body').on('click', '.delete', function () {
 
                 Swal.fire({
   title: "Are you sure?",
