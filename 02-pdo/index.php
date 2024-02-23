@@ -25,13 +25,13 @@ $pets = getALLpets($conx);
 
 <body>
     <main>
-        <header class="nav level-1">
-            <a href="/html/dashboard.html">
-                <img src="/imagenes/back.svg" alt="Back">
+        <header class="nav level-0">
+            <a href="">
+                <img src="<?php echo URLIMGS . "/back.svg" ?>" alt="Back">
             </a>
-                <img src="/imagenes/Icon light.svg" alt="Logo">
+                <img src="<?php echo  URLIMGS . "/Icon light.svg" ?>" alt="Logo">
             <a href="" class="mburger">
-                <img src="/imagenes/mburger.svg" alt="">
+                <img src= "<?php echo URLIMGS . "/mburger.svg" ?>" alt="">
             </a>
         </header>
         <section class="module">
@@ -42,88 +42,27 @@ $pets = getALLpets($conx);
         </a>
         <table>
             <tbody>
-                <tr>
-                    <td><img src="/imagenes/Icono petreal.svg" alt="User"></td>
-                    <td><span>Pet 01</span><br>
-                        <span>Dog</span></td>
-                    <td>
-                        <a href="show.html" class="show">
-                            <img src="/imagenes/Lupa.svg" alt="Show">
-                        </a>
-                        <a href="edit.html" class="edit">
-                            <img src="/imagenes/Lapiz.svg" alt="Edit">
-                        </a>
-                        <a href="javascript:;" class="delete">
-                            <img src="/imagenes/Papelera.svg" alt="Delete">
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><img src="/imagenes/Icono petreal.svg" alt="User"></td>
-                    <td><span>Pet 02</span><br>
-                        <span>Cat</span></td>
-                    <td>
-                        <a href="show.html" class="show">
-                            <img src="/imagenes/Lupa.svg" alt="Show">
-                        </a>
-                        <a href="edit.html" class="edit">
-                            <img src="/imagenes/Lapiz.svg" alt="Edit">
-                        </a>
-                        <a href="javascript:;" class="delete">
-                            <img src="/imagenes/Papelera.svg" alt="Delete">
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td><img src="/imagenes/Icono petreal.svg" alt="User"></td>
-                    <td><span>Pet 03</span><br>
-                        <span>Dog</span></td>
-                    <td>
-                        <a href="show.html" class="show">
-                            <img src="/imagenes/Lupa.svg" alt="Show">
-                        </a>
-                        <a href="edit.html" class="edit">
-                            <img src="/imagenes/Lapiz.svg" alt="Edit">
-                        </a>
-                        <a href="javascript:;" class="delete">
-                            <img src="/imagenes/Papelera.svg" alt="Delete">
-                        </a>
-                    </td>
-                </tr>
+                <?php foreach($pets as $pet): ?>
                 <tr>
                     <td><img src="/imagenes/Icono petreal.svg" alt="User"></td>
                     <td>
-                        <span>Pet 04</span><br>
-                        <span>Cat</span>
+                        <span><?php echo $pet['name'] ?></span><br>
+                        <span><?php echo $pet['kind'] ?></span>
                     </td>
                     <td>
                         <a href="show.html" class="show">
-                            <img src="/imagenes/Lupa.svg" alt="Show">
+                            <img src="<?php echo URLIMGS . "/Lupa.svg" ?>"alt="Show">
                         </a>
                         <a href="edit.html" class="edit">
-                            <img src="/imagenes/Lapiz.svg" alt="Edit">
+                            <img src="<?php echo URLIMGS . "/Lapiz.svg" ?> "alt= "Edit">
                         </a>
                         <a href="javascript:;" class="delete">
-                            <img src="/imagenes/Papelera.svg" alt="Delete">
+                            <img src="<?php echo URLIMGS . "/Papelera.svg" ?>" alt="Delete">
                         </a>
                     </td>
                 </tr>
-                <tr>
-                    <td><img src="/imagenes/Icono petreal.svg" alt="User"></td>
-                    <td><span>Pet 05</span><br>
-                        <span>Dog</span></td>
-                    <td>
-                        <a href="show.html" class="show">
-                            <img src="/imagenes/Lupa.svg" alt="Show">
-                        </a>
-                        <a href="edit.html" class="edit">
-                            <img src="/imagenes/Lapiz.svg" alt="Edit">
-                        </a>
-                        <a href="javascript:;" class="delete">
-                            <img src="/imagenes/Papelera.svg" alt="Delete">
-                        </a>
-                    </td>
-                </tr>
+                <?php endforeach ?>
+               
             </tbody>
         </table>
         
@@ -162,3 +101,4 @@ $pets = getALLpets($conx);
 </body>
 
 </html>
+
