@@ -43,7 +43,7 @@ $pets = getALLpets($conx);
                     <td>
                         <img src="<?php echo URLIMGS . "/" . $pet['photo'] ?>" alt="User"></td>
                     <td>
-                        <span><?php echo $pet['name'] ?></span><br>
+                        <span><?php echo $pet['name'] ?></span>
                         <span><?php echo $pet['kind'] ?></span>
                     </td>
                     <td>
