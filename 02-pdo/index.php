@@ -80,7 +80,7 @@ $pets = getALLPets($conx);
                     icon: "success"
                 })
 
-            <?php unset($_SESSION['msj']) ?>
+            <?php unset($_SESSION['msg']) ?>
             <?php endif ?>
 
 
