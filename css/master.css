@@ -377,8 +377,11 @@ main {
         flex-direction: column;
         align-items: center;
         img.photo{
-            border-radius: 50%;
+            border-radius: 200px;
             border: 2px solid #FDFFFC;
+            object-fit: cover;
+            height: 280px;
+            width: 280px;
         }
         div.info {
             display: grid;

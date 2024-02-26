@@ -3,7 +3,7 @@
 require "config/app.php";
 require "config/database.php";
 
-$pets = getALLpets($conx);
+$pets = getALLPets($conx);
 
 ?>
 
@@ -41,19 +41,19 @@ $pets = getALLpets($conx);
                 <?php foreach($pets as $pet): ?>
                 <tr>
                     <td>
-                        <img src="<?php echo URLIMGS . "/" . $pet['photo'] ?>" alt="User"></td>
+                        <img src="<?php echo URLIMGS . "/" . $pet['photo'] ?>" alt="Pet"></td>
                     <td>
                         <span><?php echo $pet['name'] ?></span>
                         <span><?php echo $pet['kind'] ?></span>
                     </td>
                     <td>
-                        <a href="show.html" class="show">
+                        <a href="show.php?id=<?=$pet['id']?>" class="show">
                             <img src="<?php echo URLIMGS . "/Lupa.svg" ?>"alt="Show">
                         </a>
-                        <a href="edit.html" class="edit">
+                        <a href="edit.php?id=<?=$pet['id']?>" class="edit">
                             <img src="<?php echo URLIMGS . "/Lapiz.svg" ?> "alt= "Edit">
                         </a>
-                        <a href="javascript:;" class="delete">
+                        <a href="javascript:;" class="delete" data-id="<?=$pet['id']?>">
                             <img src="<?php echo URLIMGS . "/Papelera.svg" ?>" alt="Delete">
                         </a>
                     </td>
