@@ -27,6 +27,22 @@
         }
     }
 
+
+    function deletePet($conx, $id) {
+        try {
+            $sql = "DELETE FROM pets WHERE id = :id";
+            $smt = $conx -> prepare($sql);
+            if($smt->execute(['id' => $id])) {
+                $_SESSION['msg'] = 'The pet was deleted successfully.' ;
+                return true;
+            }
+            
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+
+
     function addPet($conx, $data) {
         try {
             $sql = "INSERT INTO pets (name, photo, kind, weight, age, breed, location)

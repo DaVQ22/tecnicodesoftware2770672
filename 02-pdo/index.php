@@ -97,12 +97,7 @@ $pets = getALLPets($conx);
   confirmButtonText: "Yes, delete it!"
 }).then((result) => {
   if (result.isConfirmed) {
-    Swal.fire({
-      title: "Taz!",
-      text: "Papiado",
-      confirmButtonColor: "#2ec4b6",
-      icon: "success"
-    });
+    window.location.replace('delete.php?id=' + $id)
   }
 });
                 
