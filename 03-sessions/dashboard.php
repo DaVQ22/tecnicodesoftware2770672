@@ -3,8 +3,10 @@
 require "config/app.php";
 require "config/database.php";
 
-
-
+if(!isset($_SESSION['uid'])) {
+    $_SESSION['error'] = "Please login first to access dashboard.";
+    header("location: index.php");
+}
 ?>
 
 
@@ -31,6 +33,7 @@ require "config/database.php";
             z-index: 999;
             justify-content: center;
             min-height: 100vh;
+            transition: all 0.5s ease-in;
             width: 100%;
 
             a:is(:link, :visited) {
@@ -43,31 +46,10 @@ require "config/database.php";
             }
         }
         div.menu.open {
-            animation: openMenu 0.5s ease-in 1 forwards;
+            top: 0;
+            opacity: 1;
         }
-        div.menu.close {
-            animation: closeMenu 0.5s ease-in 1 forwards;
-        }
-        @keyframes openMenu {
-            0% {
-                top: -1000px;
-                opacity: 0;
-            }
-            100% {
-                top: 0;
-                opacity: 1;
-            }
-        }
-        @keyframes closeMenu {
-            0% {
-                top: 0;
-                opacity: 1;
-            }
-            100% {
-                top: -1000px;
-                opacity: 0;
-            }
-        }
+        
     </style>
 </head>
 
@@ -126,11 +108,7 @@ require "config/database.php";
                 $('.menu').addClass('open')
             })
             $('body').on('click', '.closem', function () {
-                $('.menu').addClass('close')
-                setTimeout(() => {
-                    $('.menu').removeClass('open')
-                    $('.menu').removeClass('close')
-                }, 1000)
+                $('.menu').removeClass('close')
             })
 
             <?php if(isset($_SESSION['msj'])): ?>

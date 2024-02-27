@@ -49,40 +49,20 @@ if (isset($_SESSION['udi'])) {
     <script src="/01-UI/js/sweetalert2.js"></script>
     <script src="/01-UI/js/jquery-3.7.1.min.js"></script>
     <script>
-        $(document).ready(function () {
+         $(document).ready(function () {
 
-            <?php if(isset($_SESSION['error'])): ?>
-
-                Swal.fire({
-                    title: "Taz!",
-                    text: "<?php echo $_SESSION['error'] ?>",
-                    confirmButtonColor: "#2ec4b6",
-                    icon: "error"
-                })
-
-            <?php unset($_SESSION['error']) ?>
-            <?php endif ?>
-
-
-
-    $('body').on('click', '.delete', function () {
-
-                Swal.fire({
-  title: "Are you sure?",
-  text: "You won't be able to revert this!",
-  icon: "question",
-  showCancelButton: true,
-  confirmButtonColor: "#2ec4b6",
-  cancelButtonColor: "#011627",
-  confirmButtonText: "Yes, delete it!"
-}).then((result) => {
-  if (result.isConfirmed) {
-    window.location.replace('delete.php?id=' + $id)
-  }
-});
-                
-            });
-        });
+<?php if(isset($_SESSION['error'])): ?>
+    Swal.fire({
+        position: "top-end",
+        title: "Ops!",
+        text: "<?php echo $_SESSION['error'] ?>",
+        icon: "error",
+        showConfirmButton: false,
+        timer: 5000
+    })
+    <?php unset($_SESSION['error']) ?>
+<?php endif ?>
+})
     </script>
 
 </body>
