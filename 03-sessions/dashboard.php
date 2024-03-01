@@ -3,6 +3,8 @@
 require "config/app.php";
 require "config/database.php";
 
+$user = getUser($conx, $_SESSION['uid']);
+
 if(!isset($_SESSION['uid'])) {
     $_SESSION['error'] = "Please login first to access dashboard.";
     header("location: index.php");
@@ -44,6 +46,26 @@ sdsa
                 font-size: 2rem;
                 text-decoration: none;
             }
+
+            nav {
+                color: #fff9;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+
+                img {
+                    border: 2px solid #fff;
+                    border-radius: 60%;
+                    object-fit: cover;
+                    width: 200px;
+                }
+
+
+                h4, h5 {
+                    margin: 0;
+                }
+            }
         }
         div.menu.open {
             top: 0;
@@ -58,6 +80,9 @@ sdsa
 <div class="menu">
         <a href="javascript:;" class="closem">X</a>
         <nav>
+            <img src="<?=URLIMGS."/".$USER['photo']?>" alt="">
+            <h4><?=$user['fullname']?></h4>
+            <h5><?=$user['role']?></h5>
             <a href="close.php">Close session</a>
         </nav>
     </div>
@@ -72,6 +97,9 @@ sdsa
                 <img src="<?php echo URLIMGS . "/mburger.svg" ?>" alt="">
             </a>
         </header>
+
+        <?php if ($_SESSION['urole'] = 'Admin'):?>
+
         <section class="dashboard">
             <h1>Dashboard</h1>
             <menu>
@@ -97,6 +125,21 @@ sdsa
                 </ul>
             </menu>
         </section>
+        <?php elseif ($_SESSION['urole'] = 'Customer'): ?>
+            <section class="dashboard">
+            <h1>Dashboard</h1>
+            <menu>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <img src="<?php echo URLIMGS . "/Icono Adopciones.svg" ?> " alt="">
+                            <span>Modulo Adoptions</span>
+                        </a>
+                    </li>
+                </ul>
+            </menu>
+            </section>>
+        <?php endif ?>
     </main>
     
     <script src="/01-UI/js/sweetalert2.js"></script>
