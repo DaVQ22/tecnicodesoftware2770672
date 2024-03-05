@@ -20,7 +20,7 @@ class PetSeeder extends Seeder
          $pet->kind = "Dog";
          $pet->weight = 10;
          $pet->age = 4;
-         $pet->bread = "Pug";
+         $pet->breed = "Pug";
          $pet->location = "Manizales";
          $pet->save();
  

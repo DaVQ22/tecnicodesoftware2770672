@@ -17,6 +17,8 @@ class UserSeeder extends Seeder
          // Add a record with Eloquent ORM
          $user = new User;
          $user->document = 75000001;
+         $user->birth = '2011_02_19';
+         $user->gender = 'male';
          $user->fullname = "Jeremias Springfield";
          $user->photo = "";
          $user->phone = 310000001;
@@ -28,6 +30,8 @@ class UserSeeder extends Seeder
          // Add a record with Array 
          DB::table('users')->insert([
              'document' => 75000002,
+             'birth' => '2010_02_19',
+             'gender' => 'female',
              'fullname' => 'John Wick',
              'photo' => 'another-john-wick.jpg',
              'phone' => 310000002,
