@@ -13,23 +13,6 @@
     </main>
     <script src="{{ asset('js/sweetalert2.js') }}"></script>
     <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
-    <script>
-        $(document).ready(function () {
-             $('#upload').click(function (e) { 
-                e.preventDefault();
-                $('#photo').click()
-                
-            });
-
-            $('#photo').change(function (e) { 
-                e.preventDefault();
-                let reader = new FileReader()
-                reader.onload = function(event) {
-                    $('#upload').attr('src', event.target.result)
-                }
-                reader.readAsDataURL(this.files[0])
-            });
-        });
-    </script>
+    @yield('js')
 </body>
 </html>

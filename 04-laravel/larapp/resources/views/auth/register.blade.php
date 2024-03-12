@@ -56,18 +56,68 @@
 
 @section('content')
 <header>
-    <img src="/imagenes/Icon dark.png" alt="Logo">
+    <img src="{{ asset('images/Icon light.png') }}" alt="Logo">
 </header>
-<section class="register">
+<section class="create register">
     <menu>
-        <a href="login.html">Login</a>
-        <a href="#">Register</a>
+        <a href="{{ url('login/') }}">Login</a>
+        <a href="javascript:;">Register</a>
     </menu>
-    <form action="dashboard.html" method="post">
-        <input type="text" name="name" placeholder="Full Name" id="" required>
-        <input type="text" name="phone" placeholder="Phone Number" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="password" name="password" placeholder="Password" required>
+    <form action="{{ route('register') }}" method="post" enctype="multipart/form-data">
+        @csrf
+        <img src="{{ asset('images/ico-upload-user.svg') }}" id="upload" width="240px" alt="Upload">
+        <input type="file" name="photo" id="photo" accept="image/*" >
+        <input type="number" name="document" placeholder="Document" value="{{ old('document') }}">
+        <input type="text" name="fullname" placeholder="Full Name" value="{{ old('fullname') }}">
+        <select name="gender">
+            <option value="">Select Gender...</option>
+            <option value="Female" @if(old('gender') == 'Female') selected @endif>Female</option>
+            <option value="Male" @if(old('gender') == 'Male') selected @endif>Male</option>            
+        </select>
+        <input type="date" name="birth" placeholder="Birth" value="{{ old('birth') }}">
+        <input type="text" name="phone" placeholder="Phone Number" value="{{ old('phone') }}">
+        <input type="email" name="email" placeholder="Email" value="{{ old('email') }}">
+        <input type="password" name="password" placeholder="Password">
+        <input type="password" name="password_confirmation" placeholder="confirmed-Password">
         <button type="submit">Register</button>
     </form>
-</section>
+</section>   
+@endsection
+
+@section('js')
+<script>
+    $(document).ready(function () {
+        $('#upload').click(function (e) { 
+            e.preventDefault()
+            $('#photo').click()
+        })
+
+        $('#photo').change(function (e) { 
+            e.preventDefault();
+            let reader = new FileReader()
+            reader.onload = function(event) {
+                $('#upload').attr('src', event.target.result)
+            }
+            reader.readAsDataURL(this.files[0])
+        })
+    })
+</script>
+@if (count($errors->all()) > 0)
+@php $error = '' @endphp
+    @foreach ($errors->all() as $message )
+        @php $error .= '<li>' . $message . '</li>' @endphp   
+    @endforeach    
+    <script>
+        $(document).ready(function () {
+            Swal.fire({
+                position:"center",
+                title: "Ops",
+                html: `@php echo $error @endphp`,
+                icon: "error",
+                showConfirmButton: false,
+                timer: 5000
+            })
+        })
+    </script>
+@endif
+@endsection

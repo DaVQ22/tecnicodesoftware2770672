@@ -102,21 +102,26 @@ main {
             gap: 3.3rem;
             margin-top: 45px;
 
-            input,
-            button {
+            input, button, select {
                 outline: none;
                 border: none;
                 border-radius: 50px;
                 padding: 20px;
-                width: re;
+                width: 380px;
 
             }
 
-            input {
+            select {
+                appearance: none;
+                width: 420px;
+            }
+
+            input, select {
                 font-size: 24px;
                 font-weight: 400px;
                 background-color: var(--color5);
                 color: var(--color2);
+                
                 transition: all 0.5s ease-in;
 
                 &::placeholder {
@@ -231,6 +236,9 @@ main {
                     }
 
                     a {
+                        img {
+                            transform: scale(.8);
+                        }
 
                         img,
                         span {
@@ -351,6 +359,8 @@ main {
             margin: 2.4rem 0;
         }
 
+
+
         form {
             margin-bottom: 1rem;
             img#upload{
@@ -470,12 +480,85 @@ main {
         width: 380px;
         transition: all 0.5s ease-in;
     }
+    a.closem {
+        position: absolute;
+        top: 44px;
+        right: 0px;
+    }
 
     .btn:is( :hover) {
         border: 2px var(--color4);
         background-color: var(--color4);
         color: var(--color2);
         transition: 0.5s;
+    }
+
+    div.menu {
+        background-color: var(--color-pri);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        position: absolute;
+        top: -800px;
+        opacity: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 999;
+        justify-content: center;
+        min-height: 100vh;
+        transition: all 0.5s ease-in;
+        width: 440px;
+
+        a:is(:link, :visited) {
+            border-radius: 50px;
+            color: #fff;
+            font-size: 2rem;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+
+        a.closem {
+            position: absolute;
+            top: 44px;
+            right: 0px;
+        }
+
+        nav {
+            color: #fff9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+
+            img {
+                border: 2px solid #fff;
+                border-radius: 60%;
+                object-fit: cover;
+                height: 200px;
+                width: 200px;
+            }
+
+            h4, h5 {
+                margin: 0;
+            }
+
+            button.closes {
+                border: 2px solid #fff;
+                border-radius: 50px;
+                background-color: var(--color-pri);
+                color: #fff;
+                cursor: pointer;
+                font-size: 2rem;
+                padding: 10px 20px;
+                text-decoration: none;
+            }
+        }
+    }
+
+    div.menu.open{
+        top: 0;
+        opacity: 1;
     }
 
 
