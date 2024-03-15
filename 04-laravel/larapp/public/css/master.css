@@ -561,11 +561,45 @@ main {
         opacity: 1;
     }
 
+table{
+        tfoot{
+            nav{
+              ul.pagination{
+                list-style: none;
+                padding: 0;
+                display: flex;
+                justify-content: space-between;
+                li{
+                    a:is(:link, :visited){
+                        border: 2px solid #011627;
+                        border-radius: 30px;
+                        color: #011627;
+                        font-size: 2rem;
+                        padding: 6px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 50px;
+                        width: 50px;
+                        text-decoration: none;
+                        transition: all 0.2s ease-in;
+                    }
+                    a[rel=prev]:hover{
+                        transform: translateX(-6px);
+                    }
+                    a[rel=next]:hover{
+                        transform: translateX(6px);
+                    }
+                }
+            }
 
+        }
+    }
+}
 }
 
 .diferentbackground {
-    background: var(--color7);
+        background: var(--color7);
 
 }
 
